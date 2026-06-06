@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 import os
 import json
 import re
-from typing import List
+from typing import List, Dict
 from pydantic import BaseModel
 import datetime
 
@@ -317,6 +317,7 @@ class DispatchRequest(BaseModel):
     incident_text: str
     incident_data: dict
     volunteer_ids: List[int]
+    volunteer_scores: Dict[int, float] = {}
 
 @app.post("/api/dispatch")
 def dispatch_team(req: DispatchRequest, db: Session = Depends(get_db)):
@@ -352,7 +353,7 @@ def dispatch_team(req: DispatchRequest, db: Session = Depends(get_db)):
             assignment = models.Assignment(
                 volunteer_id=vol_id,
                 incident_id=incident.id,
-                match_score=0,
+                match_score=req.volunteer_scores.get(vol_id, 0),
                 status="Active"
             )
             db.add(assignment)

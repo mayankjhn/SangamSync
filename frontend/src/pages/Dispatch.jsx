@@ -49,7 +49,10 @@ export default function Dispatch() {
       const res = await api.post('/api/dispatch', {
         incident_text: incidentText,
         incident_data: aiResult,
-        volunteer_ids: volunteers.map(v => v.volunteer.id)
+        volunteer_ids: volunteers.map(v => v.volunteer.id),
+        volunteer_scores: Object.fromEntries(
+          volunteers.map(v => [v.volunteer.id, v.match_score])
+        ),
       })
       setDispatchResult(res.data)
       setDispatched(true)

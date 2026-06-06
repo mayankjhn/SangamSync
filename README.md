@@ -12,7 +12,18 @@
 
 **"Right Volunteer. Right Place. Right Time."**
 
-*Built for the Mahakumbh Hackathon — Intelligent Volunteer Management System*
+*Built for the Mahakumbh Hackathon 2028 — Intelligent Volunteer Management System*
+
+**👤 Author:** [Mayank](https://github.com/mayankjhn) · **🛠️ Built with:** Cursor AI-assisted development
+
+### 🔗 Quick Links
+
+| | Link |
+|---|------|
+| 🌐 **Live Demo** | _Add your Vercel URL after deploy_ |
+| 🎥 **Demo Video** | _Add your Loom URL_ |
+| 📂 **GitHub** | [github.com/mayankjhn/SangamSync](https://github.com/mayankjhn/SangamSync) |
+| 📡 **API Docs** | `https://your-api.onrender.com/docs` |
 
 </div>
 
@@ -162,12 +173,12 @@ At-a-glance command overview:
 
 ---
 
-### 👥 7. Volunteer Registry
-Searchable, filterable directory of all registered volunteers with:
-- Name, phone, sector
-- Skill certifications
-- Experience level (Trainee / Intermediate / Expert)
-- Current availability and workload
+### 👥 7. Volunteer Recruitment & Registry
+Recruit new volunteers via an in-app registration form, then search and filter the full directory:
+- Register volunteers with name, phone, sector, skills, experience
+- Search by name, phone, or skill
+- Filter by sector
+- Live availability and workload status
 
 ---
 
@@ -261,7 +272,7 @@ Max Score = 100 points
 Follow these steps for the perfect hackathon demonstration:
 
 ### Step 1 — Auth Page
-Open [http://localhost:5173](http://localhost:5173)
+Open [http://localhost:5173](http://localhost:5173) (redirects to `/auth`)
 → Click **"Admin (Control Room)"**
 
 ### Step 2 — Overview Dashboard
@@ -414,9 +425,9 @@ python -m venv venv
 source venv/bin/activate
 
 # Install dependencies
-pip install fastapi uvicorn sqlalchemy pydantic python-dotenv
+pip install -r requirements.txt
 
-# Seed the database with 50 mock volunteers
+# Seed the database with 50 volunteers (optional — auto-seeds on first run)
 python seed.py
 
 # Start the backend server
@@ -447,6 +458,23 @@ Frontend will be available at: **http://localhost:5173**
 
 Navigate to [http://localhost:5173](http://localhost:5173) and click **"Admin (Control Room)"**.
 
+### 5. Deploy to Production
+
+**Backend (Render):**
+1. Push repo to GitHub
+2. Create a new Web Service on [Render](https://render.com) → connect repo
+3. Set **Root Directory** to `backend`
+4. Build: `pip install -r requirements.txt`
+5. Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+6. DB auto-seeds on first startup
+
+**Frontend (Vercel):**
+1. Import repo on [Vercel](https://vercel.com) → set **Root Directory** to `frontend`
+2. Add environment variable: `VITE_API_URL=https://your-backend.onrender.com`
+3. Deploy
+
+Or use the included `render.yaml` (backend) and `frontend/vercel.json` configs.
+
 ---
 
 ## 📁 Project Structure
@@ -472,15 +500,13 @@ SangamSync/
 │   │   │   ├── Dispatch.jsx    # Emergency dispatch terminal
 │   │   │   ├── Heatmap.jsx     # Sector status heatmap
 │   │   │   ├── Burnout.jsx     # Workforce optimization
-│   │   │   ├── Volunteers.jsx  # Volunteer registry
+│   │   │   ├── Volunteers.jsx  # Recruitment + searchable registry
+│   │   │   ├── Incidents.jsx   # Incident history + resolve
 │   │   │   └── Chat.jsx        # Operations status board
 │   │   ├── components/
 │   │   │   └── ui/             # Reusable UI components
-│   │   │       ├── card.jsx
-│   │   │       ├── button.jsx
-│   │   │       ├── badge.jsx
-│   │   │       └── input.jsx
 │   │   ├── lib/
+│   │   │   ├── api.js          # Axios client (env-based URL)
 │   │   │   └── utils.js        # Utility functions
 │   │   ├── main.jsx            # React entry point
 │   │   └── index.css           # Global styles + Tailwind theme
@@ -564,11 +590,15 @@ Base URL: `http://localhost:8000`
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/` | Health check |
-| GET | `/api/dashboard/stats` | Live statistics + sector health |
+| GET | `/api/dashboard/stats` | Live statistics + sector health + incident charts |
 | GET | `/api/volunteers` | List all volunteers |
-| GET | `/api/incidents` | List all incidents |
-| POST | `/api/ai/analyze-incident?text=...` | Classify incident from text |
+| POST | `/api/volunteers` | Register a new volunteer |
+| GET | `/api/incidents` | List all incidents (newest first) |
+| POST | `/api/ai/analyze-incident?text=...` | Classify incident from text (Hindi + English) |
 | POST | `/api/ai/allocate-volunteers` | Get ranked volunteer recommendations |
+| POST | `/api/dispatch` | Save incident, assign volunteers, update workload |
+| PATCH | `/api/incidents/{id}/resolve` | Resolve incident and free volunteers |
+| POST | `/api/burnout/replace/{id}` | Suggest replacement for burned-out volunteer |
 
 ### Example: Analyze Incident
 
