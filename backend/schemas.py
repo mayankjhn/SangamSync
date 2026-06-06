@@ -19,7 +19,7 @@ class Volunteer(VolunteerBase):
     consecutive_tasks: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class IncidentBase(BaseModel):
     description: str
@@ -38,7 +38,7 @@ class Incident(IncidentBase):
     created_at: datetime.datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class AssignmentBase(BaseModel):
     volunteer_id: int
@@ -56,4 +56,4 @@ class Assignment(AssignmentBase):
     incident: Incident
 
     class Config:
-        orm_mode = True
+        from_attributes = True

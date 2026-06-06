@@ -20,7 +20,7 @@ export default function Dashboard() {
     { name: 'Sector Heatmap', path: '/dashboard/heatmap', icon: Map },
     { name: 'Optimization', path: '/dashboard/burnout', icon: Activity },
     { name: 'Volunteers', path: '/dashboard/volunteers', icon: Users },
-    { name: 'AI Assistant', path: '/dashboard/chat', icon: MessageSquare },
+    { name: 'Ops Status Board', path: '/dashboard/chat', icon: Activity },
   ]
 
   return (
