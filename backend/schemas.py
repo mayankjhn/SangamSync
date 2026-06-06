@@ -1,20 +1,26 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Union
 import datetime
 
 class VolunteerBase(BaseModel):
     name: str
     phone: str
     sector: str
-    skills: str # JSON string of list
+    skills: Union[List[str], str]  # Accept both list and JSON string
     experience_level: str
     availability: str = "Available"
 
 class VolunteerCreate(VolunteerBase):
     pass
 
-class Volunteer(VolunteerBase):
+class Volunteer(BaseModel):
     id: int
+    name: str
+    phone: str
+    sector: str
+    skills: Union[List[str], str]
+    experience_level: str
+    availability: str
     hours_worked: float
     consecutive_tasks: int
 
@@ -26,7 +32,7 @@ class IncidentBase(BaseModel):
     type: str
     priority: str
     sector: str
-    required_skills: str # JSON string of list
+    required_skills: Union[List[str], str]
     required_count: int = 1
 
 class IncidentCreate(IncidentBase):
@@ -52,8 +58,6 @@ class Assignment(AssignmentBase):
     id: int
     status: str
     assigned_at: datetime.datetime
-    volunteer: Volunteer
-    incident: Incident
 
     class Config:
         from_attributes = True

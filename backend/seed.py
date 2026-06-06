@@ -1,58 +1,94 @@
+"""
+SangamSync Database Seeder
+Seeds 50 realistic volunteers with consistent data that matches the classifier.
+Run: python seed.py
+"""
+import sys
+import os
+sys.path.insert(0, os.path.dirname(__file__))
+
+from database import SessionLocal, engine
+import models
 import json
 import random
-from database import SessionLocal, engine, Base
-import models
 
-# Create all tables
-Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
-def seed_data():
+# Sectors: 1-8 (consistent across entire app)
+SECTORS = ["Sector 1", "Sector 2", "Sector 3", "Sector 4",
+           "Sector 5", "Sector 6", "Sector 7", "Sector 8"]
+
+# Skills: EXACTLY matching INCIDENT_RULES in main.py
+SKILL_POOL = [
+    "Medical", "First Aid",
+    "Search & Rescue", "Communication",
+    "Crowd Management", "Security",
+    "Law Enforcement",
+    "Fire Safety",
+    "Technical", "Logistics",
+    "General Assistance"
+]
+
+EXPERIENCE_LEVELS = ["Trainee", "Intermediate", "Expert"]
+
+NAMES = [
+    "Rahul Sharma", "Priya Singh", "Amit Kumar", "Sunita Devi", "Rajesh Gupta",
+    "Kavita Mishra", "Vikram Yadav", "Anjali Verma", "Suresh Patel", "Pooja Tiwari",
+    "Dinesh Chauhan", "Meena Rani", "Anil Shukla", "Geeta Kumari", "Ramesh Dubey",
+    "Sita Pandey", "Mahesh Tripathi", "Lata Joshi", "Vinod Srivastava", "Rekha Aggarwal",
+    "Prakash Nair", "Shanti Rao", "Deepak Pillai", "Usha Menon", "Girish Iyer",
+    "Lakshmi Krishnan", "Sandeep Bose", "Rupa Das", "Tapan Ghosh", "Mala Banerjee",
+    "Harish Reddy", "Sudha Naidu", "Venkat Rao", "Padma Krishnamurthy", "Srikanth Murthy",
+    "Shyam Lal", "Kamla Devi", "Bharat Singh", "Durga Prasad", "Champa Devi",
+    "Arjun Tomar", "Savita Chahal", "Mohan Rawat", "Asha Bisht", "Gopal Negi",
+    "Chandra Bala", "Hemant Saxena", "Pushpa Rani", "Naresh Bajpai", "Radha Pathak"
+]
+
+def generate_phone(idx):
+    return f"98{idx:08d}"
+
+def generate_skills():
+    """Give each volunteer 2-4 skills from the pool."""
+    count = random.randint(2, 4)
+    return random.sample(SKILL_POOL, count)
+
+def seed():
     db = SessionLocal()
     
-    # Check if we already have volunteers
-    if db.query(models.Volunteer).first():
-        print("Database already seeded.")
-        return
-
-    print("Seeding database with 50 volunteers...")
+    # Clear existing data
+    db.query(models.Assignment).delete()
+    db.query(models.Incident).delete()
+    db.query(models.Volunteer).delete()
+    db.commit()
     
-    first_names = ["Rahul", "Priya", "Amit", "Sneha", "Vikram", "Anjali", "Ravi", "Kavita", "Suresh", "Pooja", "Arun", "Neha", "Vijay", "Ritu", "Deepak", "Divya", "Sanjay", "Swati", "Rajesh", "Aarti"]
-    last_names = ["Sharma", "Verma", "Patel", "Singh", "Kumar", "Gupta", "Mishra", "Das", "Yadav", "Reddy"]
-    sectors = ["Sector A", "Sector B", "Sector C", "Sector D", "Sector E"]
-    all_skills = ["Medical", "Crowd Management", "Security", "Transport", "Hospitality", "Lost & Found", "Firefighting"]
-    experience_levels = ["Beginner", "Intermediate", "Expert"]
-    
-    for _ in range(50):
-        name = f"{random.choice(first_names)} {random.choice(last_names)}"
-        phone = f"+91 {random.randint(7000000000, 9999999999)}"
-        sector = random.choice(sectors)
+    volunteers = []
+    for i, name in enumerate(NAMES):
+        skills = generate_skills()
+        sector = SECTORS[i % len(SECTORS)]
+        experience = EXPERIENCE_LEVELS[i % len(EXPERIENCE_LEVELS)]
         
-        # Pick 1 to 3 random skills
-        skills_count = random.randint(1, 3)
-        skills = random.sample(all_skills, skills_count)
-        
-        experience_level = random.choice(experience_levels)
-        
-        # Add some variation to workload for burnout simulation
-        hours_worked = round(random.uniform(2.0, 12.0), 1)
-        consecutive_tasks = random.randint(1, 15)
-        
-        availability = random.choice(["Available", "Available", "Available", "Busy", "Offline"]) # Bias towards Available
-        
-        volunteer = models.Volunteer(
+        vol = models.Volunteer(
             name=name,
-            phone=phone,
+            phone=generate_phone(i + 1),
             sector=sector,
             skills=json.dumps(skills),
-            experience_level=experience_level,
-            availability=availability,
-            hours_worked=hours_worked,
-            consecutive_tasks=consecutive_tasks
+            experience_level=experience,
+            availability="Available",
+            hours_worked=round(random.uniform(0, 11), 1),
+            consecutive_tasks=random.randint(0, 6)
         )
-        db.add(volunteer)
+        volunteers.append(vol)
+        db.add(vol)
     
     db.commit()
-    print("Seeding complete!")
+    print(f"[OK] Seeded {len(volunteers)} volunteers successfully!")
+    
+    # Print a summary
+    for sector in SECTORS:
+        count = sum(1 for v in volunteers if v.sector == sector)
+        print(f"   {sector}: {count} volunteers")
+    
+    db.close()
 
 if __name__ == "__main__":
-    seed_data()
+    seed()

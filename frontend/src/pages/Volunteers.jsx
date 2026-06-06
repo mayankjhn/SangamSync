@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../lib/api'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { Users } from 'lucide-react'
@@ -8,7 +8,7 @@ export default function Volunteers() {
   const [volunteers, setVolunteers] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/volunteers')
+    api.get('/api/volunteers')
       .then(res => {
         const parsedData = res.data.map(vol => {
           let parsedSkills = []

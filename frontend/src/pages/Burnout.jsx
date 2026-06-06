@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../lib/api'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { AlertCircle, RefreshCw } from 'lucide-react'
@@ -8,10 +8,10 @@ import { motion } from 'framer-motion'
 export default function Burnout() {
   const [volunteers, setVolunteers] = useState([])
 
+  const [replacements, setReplacements] = useState({})
+
   useEffect(() => {
-    // In a real app we'd have a specific /api/analytics/burnout endpoint
-    // For the hackathon demo, we just fetch all and filter in frontend
-    axios.get('http://localhost:8000/api/volunteers')
+    api.get('/api/volunteers')
       .then(res => {
         const parsedData = res.data.map(vol => {
           let parsedSkills = []
@@ -19,10 +19,19 @@ export default function Burnout() {
           return { ...vol, skills: parsedSkills || [] }
         })
         const sorted = parsedData.sort((a, b) => b.hours_worked - a.hours_worked)
-        setVolunteers(sorted.slice(0, 10)) // Get top 10 most worked
+        setVolunteers(sorted.slice(0, 10))
       })
       .catch(err => console.error(err))
   }, [])
+
+  const handleSuggestReplacement = async (volId) => {
+    try {
+      const res = await api.post(`/api/burnout/replace/${volId}`)
+      setReplacements(prev => ({ ...prev, [volId]: res.data }))
+    } catch (err) {
+      setReplacements(prev => ({ ...prev, [volId]: { error: 'No suitable replacement found' } }))
+    }
+  }
 
   const getRiskLevel = (hours) => {
     if (hours > 10) return { label: 'High Risk', color: 'destructive' }
@@ -71,9 +80,21 @@ export default function Burnout() {
                     </div>
                     
                     {risk.label === 'High Risk' && (
-                      <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium border border-white/10">
-                        <RefreshCw className="w-4 h-4" /> Suggest Replacement
-                      </button>
+                      <div className="flex flex-col gap-2 items-end">
+                        <button
+                          onClick={() => handleSuggestReplacement(vol.id)}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium border border-white/10"
+                        >
+                          <RefreshCw className="w-4 h-4" /> Suggest Replacement
+                        </button>
+                        {replacements[vol.id] && (
+                          <div className={`text-xs px-3 py-2 rounded-lg ${replacements[vol.id].error ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-300'}`}>
+                            {replacements[vol.id].error
+                              ? replacements[vol.id].error
+                              : `→ Replace with ${replacements[vol.id].replacement?.name} (${replacements[vol.id].replacement?.hours_worked}h worked)`}
+                          </div>
+                        )}
+                      </div>
                     )}
                   </div>
                 </motion.div>

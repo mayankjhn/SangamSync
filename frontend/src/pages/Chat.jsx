@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../lib/api'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { Activity, Users, AlertTriangle, Shield, TrendingUp, Clock } from 'lucide-react'
@@ -17,7 +17,7 @@ export default function Chat() {
 
   useEffect(() => {
     const fetchStats = () => {
-      axios.get('http://localhost:8000/api/dashboard/stats')
+      api.get('/api/dashboard/stats')
         .then(res => setStats(res.data))
         .catch(console.error)
     }
