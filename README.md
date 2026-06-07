@@ -25,7 +25,6 @@
 | 🌐 **Live Demo** | [https://sangamsync.vercel.app](https://sangamsync.vercel.app) *(update with your URL)* |
 | 🎥 **Demo Video** | [Loom Recording](https://loom.com) *(add your Loom link)* |
 | 📂 **GitHub** | [github.com/mayankjhn/SangamSync](https://github.com/mayankjhn/SangamSync) |
-| 📡 **API Docs** | [Render API /docs](https://sangamsync-api.onrender.com/docs) *(update with your URL)* |
 
 </div>
 
