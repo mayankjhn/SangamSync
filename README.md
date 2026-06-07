@@ -1,29 +1,31 @@
 # 🕉️ SangamSync
-### AI-Powered Volunteer Command & Workforce Optimization Platform for Mahakumbh
+
+### Smart Volunteer Deployment & Workforce Optimization for Mahakumbh
 
 <div align="center">
 
-![SangamSync Banner](https://img.shields.io/badge/SangamSync-Command%20Center-6366f1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz48L3N2Zz4=)
+![SangamSync](https://img.shields.io/badge/SangamSync-Command%20Center-6366f1?style=for-the-badge)
+![Hackathon](https://img.shields.io/badge/Mahakumbh-Innovation%20Hackathon%202028-f59e0b?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![SQLite](https://img.shields.io/badge/SQLite-Local%20DB-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Deployed](https://img.shields.io/badge/Status-Live%20on%20Vercel%20%2B%20Render-22c55e?style=for-the-badge)
 
 **"Right Volunteer. Right Place. Right Time."**
 
-*Built for the Mahakumbh Hackathon 2028 — Intelligent Volunteer Management System*
+*Round 2 Submission — AI-Assisted Product Build Challenge*  
+*Expert Hire × VIT Bhopal — Mahakumbh Madhya Pradesh 2028*
 
-**👤 Author:** [Mayank](https://github.com/mayankjhn) · **🛠️ Built with:** Cursor AI-assisted development
+**👤 Author:** [Mayank (@mayankjhn)](https://github.com/mayankjhn) · **🛠️ Built with:** [Cursor](https://cursor.com) AI-assisted development
 
 ### 🔗 Quick Links
 
 | | Link |
 |---|------|
-| 🌐 **Live Demo** | _Add your Vercel URL after deploy_ |
-| 🎥 **Demo Video** | _Add your Loom URL_ |
+| 🌐 **Live Demo** | [https://sangamsync.vercel.app](https://sangamsync.vercel.app) *(update with your URL)* |
+| 🎥 **Demo Video** | [Loom Recording](https://loom.com) *(add your Loom link)* |
 | 📂 **GitHub** | [github.com/mayankjhn/SangamSync](https://github.com/mayankjhn/SangamSync) |
-| 📡 **API Docs** | `https://your-api.onrender.com/docs` |
+| 📡 **API Docs** | [Render API /docs](https://sangamsync-api.onrender.com/docs) *(update with your URL)* |
 
 </div>
 
@@ -31,449 +33,321 @@
 
 ## 📋 Table of Contents
 
-- [🎯 Problem Statement](#-problem-statement)
-- [💡 Our Solution](#-our-solution)
-- [✨ Key Features](#-key-features)
-- [🧠 Intelligence Engine (How it Works)](#-intelligence-engine)
-- [📸 Screenshots & Demo Flow](#-demo-flow)
-- [🏗️ Architecture](#️-architecture)
-- [⚙️ Tech Stack](#️-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [📁 Project Structure](#-project-structure)
-- [📊 Scoring Algorithm](#-scoring-algorithm)
-- [🗺️ API Reference](#️-api-reference)
-- [🏆 Hackathon Highlights](#-hackathon-highlights)
-- [👨‍💻 Team](#-team)
+- [Overview](#-overview)
+- [Problem Statement](#-problem-statement)
+- [Solution](#-solution)
+- [Key Features](#-key-features)
+- [Complete Workflow](#-complete-workflow)
+- [Intelligence Engine](#-intelligence-engine)
+- [Architecture](#️-architecture)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+- [Deployment](#-deployment)
+- [Project Structure](#-project-structure)
+- [API Reference](#️-api-reference)
+- [Database Schema](#️-database-schema)
+- [Hackathon Submission](#-hackathon-submission)
+- [Future Roadmap](#-future-roadmap)
+- [License & Acknowledgements](#-license--acknowledgements)
+
+---
+
+## 🌟 Overview
+
+**SangamSync** is a full-stack **Volunteer Command Center** built for the **Mahakumbh Innovation Hackathon 2028** (Track: *Smart Volunteer Deployment & Workforce Optimization*).
+
+It helps authorities **recruit, manage, allocate, monitor, and optimize** thousands of volunteers during Mahakumbh — using **skills, location, workload, and operational requirements**.
+
+> **Core differentiator:** Explainable, offline-reliable dispatch — not a black-box chatbot. Every volunteer recommendation comes with human-readable reasons, match scores, and estimated response time.
 
 ---
 
 ## 🎯 Problem Statement
 
-**Mahakumbh 2025** is the world's largest human gathering:
+**Mahakumbh** is the world's largest human gathering:
 
 | Metric | Scale |
 |--------|-------|
 | Pilgrims Expected | 400–450 Million |
-| Duration | 45 days |
+| Duration | ~45 days |
 | Area | 4,000+ hectares |
 | Volunteers | 10,000+ |
-| Sectors | 25+ zones |
+| Operational Zones | 25+ sectors |
 
 ### Current Challenges
 
-- 🔴 **Manual volunteer allocation** — takes 10–20 minutes per incident
-- 🔴 **No real-time visibility** into who is available, where, and at what capacity
-- 🔴 **Volunteer burnout** goes undetected — overworked responders make mistakes
-- 🔴 **Emergency response is slow** due to poor skill-to-incident matching
-- 🔴 **Sector imbalances** — some zones are over-staffed while others have critical gaps
-- 🔴 **No explainability** — commanders don't know *why* a volunteer was selected
+- 🔴 **Manual allocation** — 10–20 minutes per incident via phone calls
+- 🔴 **No real-time visibility** — who is available, where, and at what capacity
+- 🔴 **Poor skill matching** — wrong volunteers sent to wrong incidents
+- 🔴 **Burnout undetected** — overworked volunteers make critical mistakes
+- 🔴 **Sector imbalances** — some zones over-staffed, others in crisis
+- 🔴 **No explainability** — commanders can't verify *why* someone was chosen
 
 ---
 
-## 💡 Our Solution
+## 💡 Solution
 
-**SangamSync** is a real-time, intelligent command center that:
+SangamSync is a real-time command center that closes the full ops loop:
 
-1. **Classifies incidents instantly** using a keyword-rules engine (no internet required)
-2. **Recommends the best volunteers** using a weighted multi-factor scoring algorithm
-3. **Explains every recommendation** — so commanders trust and verify decisions
-4. **Detects burnout** proactively before it causes failures
-5. **Monitors sector health** in real-time across all zones
-6. **Works 100% offline** — no API dependencies, no quotas, no failures
+| Capability | What SangamSync Does |
+|------------|----------------------|
+| **Recruit** | In-app volunteer registration with skills & sector |
+| **Manage** | Searchable registry with live availability status |
+| **Allocate** | Weighted scoring engine → top 3 explainable matches |
+| **Monitor** | Live dashboards, sector heatmap, incident history |
+| **Optimize** | Burnout detection + one-click replacement suggestions |
 
-> **Design Philosophy:** *A system that works 100% of the time beats a system that is "smarter" 80% of the time.*
+**Design philosophy:** *A system that works 100% of the time beats a system that is "smarter" 80% of the time.*
+
+The intelligence engine runs **locally** — no external AI API required for core dispatch.
 
 ---
 
 ## ✨ Key Features
 
 ### 🚨 1. Emergency Dispatch Terminal
-The crown jewel of SangamSync. An incident commander types a description in plain language:
+Type an incident in plain **Hindi or English**:
 
 ```
-"Medical emergency at the main ghat — one person unconscious near Sector 3"
+Medical emergency at Sector 3 — person unconscious near the main ghat
 ```
 
 The system instantly:
-- Classifies the incident type (Medical Emergency)
-- Determines priority (Critical)
-- Extracts location (Sector 3)
-- Identifies required skills (Medical, First Aid)
-- Recommends the **top 3 best-matched volunteers** with full explanations
-
----
+- Classifies type, priority, sector, and required skills
+- Ranks the **top 3 volunteers** with match scores
+- Shows **explainable reasons** and **ETA**
+- **Persists dispatch** to database on confirmation
 
 ### 🧠 2. Intelligent Incident Classifier
-Built entirely with rule-based NLP — zero API, zero cost, zero failure risk.
+Rule-based NLP — instant, offline, zero API cost.
 
-| Input Keyword | Detected Type | Priority |
-|--------------|---------------|----------|
-| medical, unconscious, injured, ambulance | Medical Emergency | Critical |
-| missing, lost, child, separated | Missing Person | High |
-| crowd, surge, stampede, crush | Crowd Surge | High |
-| fight, violence, weapon, theft | Security Threat | Critical |
-| fire, smoke, burning, explosion | Fire Emergency | Critical |
-| power, collapse, broken, leak | Infrastructure Failure | Medium |
+| Keywords | Type | Priority |
+|----------|------|----------|
+| medical, unconscious, injured, चिकित्सा | Medical Emergency | Critical |
+| missing, lost, child, बच्चा, गुम | Missing Person | High |
+| crowd, surge, stampede, भीड़ | Crowd Surge | High |
+| fight, violence, weapon | Security Threat | Critical |
+| fire, smoke, burning, आग | Fire Emergency | Critical |
+| power, collapse, broken | Infrastructure Failure | Medium |
 
----
-
-### 📊 3. Smart Allocation Engine with Explainability
-
-Every volunteer gets a calculated **match score** and the system tells the commander *why*:
+### 📊 3. Smart Allocation with Explainability
 
 ```
-#1 Rahul Sharma       96% Match
+#1 Rahul Sharma — 96% Match
   ✓ Skill match: Medical, First Aid
   ✓ In same sector (immediate response)
   ✓ Expert level volunteer
   ✓ Fresh — low workload
-  ✓ Low consecutive task count
-  ⏱ Expected response time: 1 minute
+  ⏱ ETA: 1 minute
 ```
 
-```
-#2 Priya Singh        89% Match
-  ✓ Skill match: Medical
-  ✓ Nearby (1km away)
-  ✓ Experienced volunteer
-  ✓ Fresh — low workload
-  ⏱ Expected response time: 3 minutes
-```
+### 📋 4. Incident History & Resolve
+- All dispatched incidents saved with timestamps
+- Resolve incidents → volunteers automatically freed
+- Auto-refreshes every 10 seconds
 
----
-
-### 🔥 4. Volunteer Burnout Detection
-Monitors every volunteer's workload in real-time:
-
-| Hours Worked | Consecutive Tasks | Risk Level | Action |
-|-------------|-------------------|------------|--------|
-| > 10 hours | Any | 🔴 High Risk | Suggest Replacement |
-| 7–10 hours | Any | 🟡 Medium Risk | Monitor |
-| < 7 hours | < 3 | 🟢 Low Risk | Deploy freely |
-
----
-
-### 🗺️ 5. Sector Health Monitor (Heatmap)
-Visual grid showing real-time status of every sector:
-
-- 🟢 **Safe** — Coverage > 70% — All good
-- 🟡 **Warning** — Coverage 40–70% — Needs attention
-- 🔴 **Critical** — Coverage < 40% — Immediate reallocation needed
-
----
+### 🗺️ 5. Live Sector Heatmap
+Real-time coverage across **Sector 1–8**:
+- 🟢 **Safe** — coverage > 70%
+- 🟡 **Warning** — coverage 40–70% or active incidents
+- 🔴 **Critical** — coverage < 40% or 3+ incidents
 
 ### 📈 6. Analytics Dashboard
-At-a-glance command overview:
-- Total vs Active volunteers (live count)
-- Open incidents tracker
-- Critical alert counter
-- Volunteer distribution by sector (Pie chart)
-- Incident type breakdown (Bar chart)
-- Sector coverage matrix
-
----
+- Total / active volunteers
+- Open incidents & critical alerts
+- Volunteer distribution pie chart (live)
+- Incidents-by-type bar chart (live)
 
 ### 👥 7. Volunteer Recruitment & Registry
-Recruit new volunteers via an in-app registration form, then search and filter the full directory:
-- Register volunteers with name, phone, sector, skills, experience
+- Register new volunteers (name, phone, sector, skills, experience)
 - Search by name, phone, or skill
 - Filter by sector
-- Live availability and workload status
+
+### 🔥 8. Burnout Detection & Replacement
+| Hours Worked | Risk | Action |
+|-------------|------|--------|
+| > 10h | 🔴 High | Suggest Replacement (live API) |
+| 7–10h | 🟡 Medium | Monitor |
+| < 7h | 🟢 Low | Deploy freely |
+
+### 📡 9. Operations Status Board
+Live sector coverage matrix, system health indicators, real-time clock.
 
 ---
 
-### 📡 8. Operations Status Board
-Live command overview:
-- Real-time clock
-- All system components status
-- Sector-by-sector coverage percentages
-- Auto-refreshes every 10 seconds
+## 🔄 Complete Workflow
+
+```
+Incident Report (Hindi/English text)
+        │
+        ▼
+  Classify Incident ──► type · priority · sector · skills
+        │
+        ▼
+  Score Volunteers ──► skills + proximity + experience + workload
+        │
+        ▼
+  Top 3 Matches ──► scores + reasons + ETA
+        │
+        ▼
+  Commander Dispatches ──► saved to DB
+        │
+        ├──► Volunteers marked Busy, workload updated
+        ├──► Overview & Heatmap refresh
+        ├──► Incident History updated
+        │
+        ▼
+  Resolve Incident ──► volunteers freed, status = Resolved
+```
 
 ---
 
 ## 🧠 Intelligence Engine
 
-### Incident Classification Flow
+### Scoring Formula
 
 ```
-User Input (Plain Text)
-        │
-        ▼
-┌──────────────────────────┐
-│   Keyword Matching Rules  │
-│                          │
-│  "medical" → +1 score    │
-│  "unconscious" → +1      │
-│  "injured" → +1          │
-│  ... (13 keywords)       │
-└──────────────┬───────────┘
-               │ Best Rule Wins
-               ▼
-┌──────────────────────────┐
-│   Sector Extraction      │
-│   (Regex: "Sector X")    │
-└──────────────┬───────────┘
-               │
-               ▼
-┌──────────────────────────┐
-│   Structured Output      │
-│   {                      │
-│     type: "Medical..."   │
-│     priority: "Critical" │
-│     sector: "Sector 3"   │
-│     skills: [...]        │
-│     confidence: 90%      │
-│   }                      │
-└──────────────────────────┘
+Score = Skill Match (40%) + Proximity (25%) + Availability (15%)
+      + Experience (10%) + Workload (10%)
+
+Maximum = 100 points
 ```
 
-### Smart Allocation Scoring Formula
+| Factor | Scoring |
+|--------|---------|
+| **Proximity** | Same sector: 25pts · ≤1km: 20 · ≤2km: 15 · ≤3km: 8 |
+| **Experience** | Expert: 10pts · Intermediate: 5 · Trainee: 0 |
+| **Workload** | <4h: 10pts · 4–8h: 5 · >8h: 0 |
 
-```
-Score = (Skill Match × 40%) 
-      + (Proximity Score × 25%) 
-      + (Availability Base × 15%) 
-      + (Experience Level × 10%) 
-      + (Workload Score × 10%)
-
-Max Score = 100 points
-```
-
-**Proximity Scoring Table:**
-
-| Distance | Points Awarded |
-|----------|---------------|
-| Same sector (0km) | 25 pts |
-| ≤ 1km | 20 pts |
-| ≤ 2km | 15 pts |
-| ≤ 3km | 8 pts |
-| > 3km | 0 pts |
-
-**Experience Scoring:**
-
-| Level | Points |
-|-------|--------|
-| Expert | 10 pts |
-| Intermediate | 5 pts |
-| Trainee | 0 pts |
-
-**Workload Scoring:**
-
-| Hours Worked | Points |
-|-------------|--------|
-| < 4 hours | 10 pts |
-| 4–8 hours | 5 pts |
-| > 8 hours | 0 pts |
-
----
-
-## 📸 Demo Flow
-
-Follow these steps for the perfect hackathon demonstration:
-
-### Step 1 — Auth Page
-Open [http://localhost:5173](http://localhost:5173) (redirects to `/auth`)
-→ Click **"Admin (Control Room)"**
-
-### Step 2 — Overview Dashboard
-- Show the live stats: **50 volunteers**, sector breakdown
-- Point to the animated Recharts visualizations
-
-### Step 3 — Emergency Dispatch (The WOW Moment)
-Navigate to **Emergency Dispatch** and type:
-```
-Medical emergency at the main ghat — one person unconscious near Sector 3
-```
-Click **"Analyze & Allocate"**
-
-Watch as the system:
-1. Instantly classifies: **Medical Emergency, Critical, Sector 3**
-2. Shows **confidence: 90%**
-3. Reveals the top 3 matched volunteers with reasons + expected response time
-4. Click **"Dispatch Team Now"**
-
-### Step 4 — Try Different Incident Types
-
-```
-# Missing child
-A child got separated from parents near Gate 5 entry
-
-# Crowd surge  
-Massive crowd pushing near Sector 8, people falling
-
-# Security threat
-A fight broke out near Sector 2 parking area, weapons involved
-
-# Fire
-Thick smoke coming from food stall in Sector 6
-```
-
-### Step 5 — Sector Heatmap
-Show the color-coded grid — point to red sectors needing immediate attention
-
-### Step 6 — Burnout Detection
-Show the workforce optimization page — demonstrate burnout detection with hours worked
-
-### Step 7 — Operations Status Board
-Show real-time sector coverage matrix and system health indicators
+Sectors use a **distance matrix** across Sector 1–8 for proximity calculation.
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-┌────────────────────────────────────────────────────────┐
-│                    BROWSER (CLIENT)                     │
-│                                                        │
-│  React 18 + Vite  │  Tailwind CSS  │  Framer Motion   │
-│  Recharts         │  Lucide Icons  │  React Router    │
-│                                                        │
-│  Pages:                                                │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
-│  │Overview  │ │Dispatch  │ │Heatmap   │ │Burnout   │ │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
-│  ┌──────────┐ ┌──────────┐                             │
-│  │Volunteers│ │Ops Board │                             │
-│  └──────────┘ └──────────┘                             │
-└─────────────────────┬──────────────────────────────────┘
-                      │ HTTP/REST (localhost:8000)
-                      │
-┌─────────────────────▼──────────────────────────────────┐
-│                    FASTAPI BACKEND                      │
-│                                                        │
-│  ┌─────────────────────────────────────────────────┐  │
-│  │         Local Intelligence Engine               │  │
-│  │  ┌─────────────────┐  ┌──────────────────────┐  │  │
-│  │  │ Incident        │  │ Smart Allocation     │  │  │
-│  │  │ Classifier      │  │ Engine               │  │  │
-│  │  │ (Keyword Rules) │  │ (Weighted Scoring)   │  │  │
-│  │  └─────────────────┘  └──────────────────────┘  │  │
-│  │  ┌─────────────────┐  ┌──────────────────────┐  │  │
-│  │  │ Sector Distance │  │ Burnout Detection    │  │  │
-│  │  │ Matrix          │  │ System               │  │  │
-│  │  └─────────────────┘  └──────────────────────┘  │  │
-│  └─────────────────────────────────────────────────┘  │
-│                                                        │
-│  ┌─────────────────────────────────────────────────┐  │
-│  │         SQLAlchemy ORM + SQLite Database        │  │
-│  │  Volunteers │ Incidents │ Assignments           │  │
-│  └─────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                     FRONTEND (Vercel)                        │
+│  React 18 · Vite · Tailwind · Framer Motion · Recharts       │
+│                                                              │
+│  Auth → Overview → Dispatch → Heatmap → Burnout              │
+│  Volunteers → Incident History → Ops Status Board            │
+└──────────────────────────┬──────────────────────────────────┘
+                           │ REST API (VITE_API_URL)
+┌──────────────────────────▼──────────────────────────────────┐
+│                     BACKEND (Render)                            │
+│  FastAPI · SQLAlchemy · SQLite · Auto-seed on startup          │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │              Local Intelligence Engine                   │   │
+│  │  Incident Classifier │ Allocation Engine │ Burnout API  │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  Volunteers │ Incidents │ Assignments (with match scores)       │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## ⚙️ Tech Stack
 
-### Backend
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Python | 3.11+ | Core language |
-| FastAPI | 0.100+ | REST API framework |
-| SQLAlchemy | 2.0+ | ORM for database |
-| SQLite | Built-in | Local persistent database |
-| Pydantic | 2.0+ | Data validation & schemas |
-| Uvicorn | Latest | ASGI server |
-
-### Frontend
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| React | 18 | UI framework |
-| Vite | 6 | Build tool & dev server |
-| Tailwind CSS | 4 | Utility-first styling |
-| Framer Motion | Latest | Premium animations |
-| Recharts | Latest | Data visualization |
-| Axios | Latest | HTTP client |
-| React Router | 6 | Client-side routing |
-| Lucide React | Latest | Icon library |
-
-### Design Principles
-- **Dark mode first** — Command center aesthetic
-- **Glassmorphism** — Frosted glass cards
-- **Micro-animations** — Every interaction feels alive
-- **Responsive** — Works on any screen size
+| Layer | Technology | Why |
+|-------|------------|-----|
+| Frontend | React 18 + Vite | Fast, modern dashboards |
+| Styling | Tailwind CSS 4 | Command-center UI at speed |
+| Charts | Recharts | Live ops analytics |
+| Animations | Framer Motion | Polished demo UX |
+| Backend | FastAPI (Python) | Fast APIs + auto docs |
+| Database | SQLite + SQLAlchemy | Zero-config, offline-ready |
+| Deploy | Vercel + Render | Free public demo for judges |
+| Dev Tool | **Cursor AI** | AI-assisted full-stack build |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- npm
 
-- Python 3.11 or higher
-- Node.js 18 or higher
-- npm / yarn
-
-### 1. Clone the Repository
+### 1. Clone
 
 ```bash
 git clone https://github.com/mayankjhn/SangamSync.git
 cd SangamSync
 ```
 
-### 2. Setup the Backend
+### 2. Backend
 
 ```bash
 cd backend
-
-# Create virtual environment
 python -m venv venv
 
-# Activate it (Windows)
-.\venv\Scripts\activate
+# Windows
+.\venv\Scripts\Activate.ps1
 
-# Activate it (Mac/Linux)
+# Mac/Linux
 source venv/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt
-
-# Seed the database with 50 volunteers (optional — auto-seeds on first run)
-python seed.py
-
-# Start the backend server
+python seed.py          # optional — auto-seeds on first server start
 uvicorn main:app --reload --port 8000
 ```
 
-Backend will be available at: **http://localhost:8000**
+- API: http://localhost:8000
+- Docs: http://localhost:8000/docs
 
-API documentation at: **http://localhost:8000/docs**
-
-### 3. Setup the Frontend
-
-Open a **new terminal window**:
+### 3. Frontend
 
 ```bash
 cd frontend
-
-# Install dependencies
 npm install
-
-# Start the development server
 npm run dev
 ```
 
-Frontend will be available at: **http://localhost:5173**
+- App: http://localhost:5173
+- Opens at `/auth` → click **Admin (Control Room)**
 
-### 4. Open in Browser
+### 4. Try a Demo Incident
 
-Navigate to [http://localhost:5173](http://localhost:5173) and click **"Admin (Control Room)"**.
+Navigate to **Emergency Dispatch** and type:
 
-### 5. Deploy to Production
+```
+Medical emergency at Sector 3 — person unconscious
+```
 
-**Backend (Render):**
+Click **Analyze & Allocate** → **Dispatch Team Now** → check **Incident History**.
+
+---
+
+## 🌐 Deployment
+
+### Backend — Render
+
 1. Push repo to GitHub
-2. Create a new Web Service on [Render](https://render.com) → connect repo
-3. Set **Root Directory** to `backend`
-4. Build: `pip install -r requirements.txt`
-5. Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-6. DB auto-seeds on first startup
+2. [Render](https://render.com) → New Web Service → connect repo
+3. **Root Directory:** `backend`
+4. **Build:** `pip install -r requirements.txt`
+5. **Start:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
 
-**Frontend (Vercel):**
-1. Import repo on [Vercel](https://vercel.com) → set **Root Directory** to `frontend`
-2. Add environment variable: `VITE_API_URL=https://your-backend.onrender.com`
-3. Deploy
+Or use the included [`render.yaml`](render.yaml).
 
-Or use the included `render.yaml` (backend) and `frontend/vercel.json` configs.
+### Frontend — Vercel
+
+1. [Vercel](https://vercel.com) → Import repo
+2. **Root Directory:** `frontend`
+3. **Environment Variable:**
+
+```
+VITE_API_URL=https://your-backend.onrender.com
+```
+
+4. Deploy
+
+Includes [`frontend/vercel.json`](frontend/vercel.json) for SPA routing.
+
+> **Note:** Render free tier may cold-start (~30s). DB auto-seeds on each fresh deploy.
 
 ---
 
@@ -481,133 +355,58 @@ Or use the included `render.yaml` (backend) and `frontend/vercel.json` configs.
 
 ```
 SangamSync/
-│
-├── backend/                    # FastAPI Python Backend
-│   ├── main.py                 # Core API endpoints + Intelligence Engine
-│   ├── models.py               # SQLAlchemy database models
-│   ├── schemas.py              # Pydantic validation schemas
-│   ├── database.py             # Database connection setup
-│   ├── seed.py                 # Database seeder (50 volunteers)
-│   ├── .env                    # Environment variables (gitignored)
-│   └── venv/                   # Python virtual environment
-│
-├── frontend/                   # React + Vite Frontend
+├── backend/
+│   ├── main.py           # API + intelligence engine + dispatch
+│   ├── models.py         # Volunteer, Incident, Assignment models
+│   ├── schemas.py        # Pydantic schemas
+│   ├── database.py       # SQLite connection
+│   ├── seed.py           # 50 volunteers across Sector 1–8
+│   └── requirements.txt  # fastapi, uvicorn, sqlalchemy, pydantic
+├── frontend/
 │   ├── src/
 │   │   ├── pages/
-│   │   │   ├── Auth.jsx        # Login / Entry page
-│   │   │   ├── Dashboard.jsx   # Main layout with sidebar
-│   │   │   ├── Overview.jsx    # Analytics dashboard
-│   │   │   ├── Dispatch.jsx    # Emergency dispatch terminal
-│   │   │   ├── Heatmap.jsx     # Sector status heatmap
-│   │   │   ├── Burnout.jsx     # Workforce optimization
-│   │   │   ├── Volunteers.jsx  # Recruitment + searchable registry
-│   │   │   ├── Incidents.jsx   # Incident history + resolve
-│   │   │   └── Chat.jsx        # Operations status board
-│   │   ├── components/
-│   │   │   └── ui/             # Reusable UI components
-│   │   ├── lib/
-│   │   │   ├── api.js          # Axios client (env-based URL)
-│   │   │   └── utils.js        # Utility functions
-│   │   ├── main.jsx            # React entry point
-│   │   └── index.css           # Global styles + Tailwind theme
-│   ├── package.json
-│   ├── vite.config.js
-│   └── postcss.config.js
-│
-├── .gitignore
+│   │   │   ├── Auth.jsx         # Entry / role selection
+│   │   │   ├── Dashboard.jsx    # Sidebar layout
+│   │   │   ├── Overview.jsx     # Live analytics
+│   │   │   ├── Dispatch.jsx     # Emergency dispatch terminal
+│   │   │   ├── Heatmap.jsx      # Sector coverage heatmap
+│   │   │   ├── Burnout.jsx      # Burnout + replacement
+│   │   │   ├── Volunteers.jsx   # Registration + registry
+│   │   │   ├── Incidents.jsx    # Incident history + resolve
+│   │   │   └── Chat.jsx         # Ops status board
+│   │   └── lib/
+│   │       └── api.js           # Axios client (env-based URL)
+│   ├── vercel.json
+│   └── .env.example
+├── render.yaml
 └── README.md
-```
-
----
-
-## 📊 Scoring Algorithm
-
-### Full Breakdown
-
-The Smart Allocation Engine evaluates every available volunteer against the incident requirements and produces a score out of 100:
-
-```python
-# Pseudocode for the scoring algorithm
-
-def score_volunteer(volunteer, incident):
-    score = 0
-    
-    # 1. SKILL MATCH (40 points)
-    # Does the volunteer have any required skills?
-    if any(skill in volunteer.skills for skill in incident.required_skills):
-        score += 40
-    
-    # 2. PROXIMITY (25 points)
-    # How close is the volunteer to the incident sector?
-    distance = get_distance(volunteer.sector, incident.sector)
-    if distance == 0:   score += 25   # Same sector
-    elif distance <= 1: score += 20   # Very close
-    elif distance <= 2: score += 15   # Nearby
-    elif distance <= 3: score += 8    # Moderate distance
-    
-    # 3. AVAILABILITY BASE (15 points)
-    # All filtered volunteers are available → base score
-    score += 15
-    
-    # 4. EXPERIENCE (10 points)
-    if volunteer.experience == "Expert":       score += 10
-    elif volunteer.experience == "Intermediate": score += 5
-    
-    # 5. WORKLOAD (10 points)
-    # Inverse relationship — less hours = higher score
-    if volunteer.hours_worked < 4:  score += 10
-    elif volunteer.hours_worked < 8: score += 5
-    
-    return score  # Max: 100
-```
-
-### Explainability Output
-
-For each recommended volunteer, the system generates human-readable reasons:
-
-```json
-{
-  "volunteer": { "name": "Rahul Sharma", "sector": "Sector 3" },
-  "match_score": 96,
-  "reasons": [
-    "✓ Skill match: Medical, First Aid",
-    "✓ In same sector (immediate response)",
-    "✓ Expert level volunteer",
-    "✓ Fresh — low workload",
-    "✓ Low consecutive task count"
-  ],
-  "response_time": "1 minute",
-  "distance_km": 0
-}
 ```
 
 ---
 
 ## 🗺️ API Reference
 
-Base URL: `http://localhost:8000`
+**Base URL:** `http://localhost:8000` (local) or your Render URL (production)
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/` | Health check |
-| GET | `/api/dashboard/stats` | Live statistics + sector health + incident charts |
-| GET | `/api/volunteers` | List all volunteers |
-| POST | `/api/volunteers` | Register a new volunteer |
-| GET | `/api/incidents` | List all incidents (newest first) |
-| POST | `/api/ai/analyze-incident?text=...` | Classify incident from text (Hindi + English) |
-| POST | `/api/ai/allocate-volunteers` | Get ranked volunteer recommendations |
-| POST | `/api/dispatch` | Save incident, assign volunteers, update workload |
-| PATCH | `/api/incidents/{id}/resolve` | Resolve incident and free volunteers |
-| POST | `/api/burnout/replace/{id}` | Suggest replacement for burned-out volunteer |
+| `GET` | `/` | Health check |
+| `GET` | `/api/dashboard/stats` | Live stats, sector health, incident charts |
+| `GET` | `/api/volunteers` | List all volunteers |
+| `POST` | `/api/volunteers` | Register a new volunteer |
+| `GET` | `/api/incidents` | List incidents (newest first) |
+| `POST` | `/api/ai/analyze-incident?text=...` | Classify incident (Hindi + English) |
+| `POST` | `/api/ai/allocate-volunteers` | Get top 3 ranked volunteers |
+| `POST` | `/api/dispatch` | Save incident, assign team, update workload |
+| `PATCH` | `/api/incidents/{id}/resolve` | Resolve incident, free volunteers |
+| `POST` | `/api/burnout/replace/{id}` | Suggest burnout replacement |
 
-### Example: Analyze Incident
+### Example — Analyze Incident
 
-**Request:**
 ```bash
-POST /api/ai/analyze-incident?text=Medical%20emergency%20near%20Sector%203
+POST /api/ai/analyze-incident?text=Medical%20emergency%20at%20Sector%203%20unconscious
 ```
 
-**Response:**
 ```json
 {
   "incident_type": "Medical Emergency",
@@ -620,161 +419,139 @@ POST /api/ai/analyze-incident?text=Medical%20emergency%20near%20Sector%203
 }
 ```
 
-### Example: Allocate Volunteers
+### Example — Dispatch Team
 
-**Request:**
 ```bash
-POST /api/ai/allocate-volunteers
+POST /api/dispatch
 Content-Type: application/json
 
 {
-  "incident_type": "Medical Emergency",
-  "priority": "Critical",
-  "sector": "Sector 3",
-  "required_skills": ["Medical", "First Aid"]
+  "incident_text": "Medical emergency at Sector 3 — person unconscious",
+  "incident_data": {
+    "incident_type": "Medical Emergency",
+    "priority": "Critical",
+    "sector": "Sector 3",
+    "required_skills": ["Medical", "First Aid"],
+    "required_count": 3
+  },
+  "volunteer_ids": [3, 11, 27],
+  "volunteer_scores": { "3": 96, "11": 89, "27": 82 }
 }
 ```
 
-**Response:**
 ```json
-[
-  {
-    "volunteer": { "id": 12, "name": "Rahul Sharma", "sector": "Sector 3", ... },
-    "match_score": 96,
-    "reasons": ["✓ Skill match: Medical", "✓ In same sector", ...],
-    "response_time": "1 minute",
-    "distance_km": 0
-  }
-]
+{
+  "success": true,
+  "incident_id": 1,
+  "dispatched_volunteers": [3, 11, 27],
+  "message": "Team dispatched to Sector 3. Incident #1 created."
+}
 ```
 
-### Interactive API Docs
-
-FastAPI auto-generates a full interactive documentation page. Access it at:
-
-👉 [http://localhost:8000/docs](http://localhost:8000/docs)
-
----
-
-## 🏆 Hackathon Highlights
-
-### Why SangamSync Wins
-
-| Judging Criterion | How We Address It |
-|------------------|-------------------|
-| **Innovation** | Explainable AI recommendations — rare in emergency systems |
-| **Feasibility** | 100% offline, SQLite, zero-dependency intelligence engine |
-| **Impact** | Directly solves volunteer management crisis at scale |
-| **Tech Stack** | Modern: React 18, FastAPI, Framer Motion, Recharts |
-| **UI/UX** | Premium dark mode, NASA Command Center aesthetic |
-| **Demo Readiness** | Pre-seeded data, works in 2 commands, zero API keys needed |
-| **Scalability** | Architecture ready for 10,000+ volunteers, multi-sector |
-
-### Differentiators
-
-✅ **Explainable Decisions** — Unlike a black-box AI, every recommendation comes with human-readable reasons
-
-✅ **Zero API Dependencies** — Works perfectly offline, in remote areas, under any network condition
-
-✅ **Burnout Prevention** — Proactively identifies overworked volunteers before failures happen
-
-✅ **Sector Intelligence** — Real-time coverage gaps identified automatically
-
-✅ **Expected Response Time** — The system calculates and displays how long it will take each volunteer to reach the incident
-
-✅ **Confidence Scoring** — Every classification comes with a confidence percentage
+Interactive docs: **/docs**
 
 ---
 
 ## 🗂️ Database Schema
 
-### Volunteer Table
-```sql
-CREATE TABLE volunteers (
-    id              INTEGER PRIMARY KEY,
-    name            TEXT NOT NULL,
-    phone           TEXT UNIQUE,
-    sector          TEXT,           -- e.g. "Sector A"
-    skills          TEXT,           -- JSON array: ["Medical", "First Aid"]
-    experience_level TEXT,          -- "Trainee" | "Intermediate" | "Expert"
-    availability    TEXT DEFAULT "Available",
-    hours_worked    FLOAT DEFAULT 0,
-    consecutive_tasks INTEGER DEFAULT 0
-);
-```
+### `volunteers`
+| Column | Type | Notes |
+|--------|------|-------|
+| id | INTEGER PK | |
+| name | TEXT | |
+| phone | TEXT | |
+| sector | TEXT | Sector 1 – Sector 8 |
+| skills | TEXT | JSON array |
+| experience_level | TEXT | Trainee / Intermediate / Expert |
+| availability | TEXT | Available / Busy / Offline |
+| hours_worked | FLOAT | |
+| consecutive_tasks | INTEGER | |
 
-### Incident Table
-```sql
-CREATE TABLE incidents (
-    id              INTEGER PRIMARY KEY,
-    description     TEXT,
-    type            TEXT,
-    priority        TEXT,           -- "Low" | "Medium" | "High" | "Critical"
-    sector          TEXT,
-    required_skills TEXT,           -- JSON array
-    required_count  INTEGER,
-    status          TEXT DEFAULT "Pending",
-    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-```
+### `incidents`
+| Column | Type | Notes |
+|--------|------|-------|
+| id | INTEGER PK | |
+| description | TEXT | Original incident text |
+| type | TEXT | Medical Emergency, etc. |
+| priority | TEXT | Low / Medium / High / Critical |
+| sector | TEXT | |
+| status | TEXT | Pending / In Progress / Resolved |
+| created_at | DATETIME | |
 
-### Assignment Table
-```sql
-CREATE TABLE assignments (
-    id              INTEGER PRIMARY KEY,
-    volunteer_id    INTEGER REFERENCES volunteers(id),
-    incident_id     INTEGER REFERENCES incidents(id),
-    match_score     FLOAT,
-    status          TEXT DEFAULT "Active",
-    assigned_at     DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-```
+### `assignments`
+| Column | Type | Notes |
+|--------|------|-------|
+| id | INTEGER PK | |
+| volunteer_id | INTEGER FK | |
+| incident_id | INTEGER FK | |
+| match_score | FLOAT | Actual allocation score |
+| status | TEXT | Active / Completed |
+| assigned_at | DATETIME | |
+
+---
+
+## 🏆 Hackathon Submission
+
+**Event:** Mahakumbh Innovation Hackathon 2028 — Round 2  
+**Organizers:** Expert Hire × VIT Bhopal  
+**Track:** Smart Volunteer Deployment & Workforce Optimization  
+**Round:** AI-Assisted Product Build Challenge
+
+| Criterion | How SangamSync Delivers |
+|-----------|-------------------------|
+| **Problem fit** | Full recruit → manage → allocate → monitor → optimize loop |
+| **Innovation** | Explainable allocation + offline-reliable intelligence |
+| **Execution** | Live deployed app with persistent dispatch |
+| **Usability** | Command-center UI, 9 integrated pages |
+| **AI-assisted build** | Built end-to-end with Cursor |
+| **Impact** | 15-min manual dispatch → <10 second decision |
+
+### Demo Script (Quick)
+
+1. `/auth` → Admin Control Room
+2. **Overview** — 50 volunteers live
+3. **Emergency Dispatch** — medical incident Sector 3 → dispatch
+4. **Incident History** — verify saved incident
+5. **Heatmap** — sector coverage updated
+6. **Volunteers** — register new volunteer
+7. **Burnout** — suggest replacement
+8. **Resolve** incident → volunteers freed
 
 ---
 
 ## 🔮 Future Roadmap
 
-- [ ] **Real-time WebSockets** — Live push notifications for new incidents
-- [ ] **Mobile App** — Field volunteer mobile interface (React Native)
-- [ ] **GPS Integration** — Real geolocation tracking for volunteers
-- [ ] **WhatsApp Bot** — Dispatch notifications via WhatsApp
-- [ ] **Shift Scheduling** — Automated shift planning with rotation
-- [ ] **Photo Verification** — Volunteer identity verification via camera
-- [ ] **Multi-language** — Hindi, English, regional language support
-- [ ] **Offline PWA** — Progressive Web App for field use without internet
-- [ ] **Historical Analytics** — Incident pattern analysis over time
+- [x] Hindi incident keywords
+- [x] Persistent dispatch with match scores
+- [x] Incident history + resolve
+- [x] Volunteer registration UI
+- [x] Live deployment (Vercel + Render)
+- [ ] Real-time WebSockets for push alerts
+- [ ] Mobile volunteer app (React Native)
+- [ ] GPS-based proximity (replace sector matrix)
+- [ ] WhatsApp dispatch notifications
+- [ ] Shift scheduling & rotation
+- [ ] Full Hindi UI localization
+- [ ] PostgreSQL for production scale
 
 ---
 
-## 👨‍💻 Team
+## 📄 License & Acknowledgements
 
-**Built with ❤️ for Mahakumbh 2025**
+**License:** MIT — see [LICENSE](LICENSE)
 
-| Name | Role |
-|------|------|
-| Mayank | Full Stack Developer, System Architect |
+**Built with ❤️ by [Mayank](https://github.com/mayankjhn) for Mahakumbh Madhya Pradesh 2028**
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgements
-
-- **Mahakumbh Mela Authority** — For inspiring this problem
-- **FastAPI** — For making backend development a joy
-- **Vite + React** — For blazing-fast frontend development
-- **Framer Motion** — For making the UI feel alive
-- **Tailwind CSS** — For beautiful styling at speed
+**Acknowledgements:**
+- Expert Hire & VIT Bhopal — Mahakumbh Innovation Hackathon 2028
+- [Cursor](https://cursor.com) — AI-assisted development
+- [FastAPI](https://fastapi.tiangolo.com/) · [React](https://react.dev/) · [Vite](https://vitejs.dev/) · [Tailwind CSS](https://tailwindcss.com/)
 
 ---
 
 <div align="center">
 
-**🏆 SangamSync — Built to WIN**
+**🏆 SangamSync**
 
 *Intelligent. Reliable. Fast. For the world's largest gathering.*
 
