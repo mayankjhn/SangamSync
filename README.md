@@ -16,7 +16,7 @@
 *Round 2 Submission — AI-Assisted Product Build Challenge*  
 *Expert Hire × VIT Bhopal — Mahakumbh Madhya Pradesh 2026*
 
-**👤 Author:** [Mayank (@mayankjhn)](https://github.com/mayankjhn) · **🛠️ Built with:** [Cursor](https://cursor.com) AI-assisted development
+**👤 Author:** [Mayank (@mayankjhn)](https://github.com/mayankjhn) ·
 
 ### 🔗 Quick Links
 
