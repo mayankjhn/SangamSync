@@ -125,12 +125,12 @@ def get_response_time(distance_km: float) -> str:
 
 def extract_sector(text: str) -> str:
     text_lower = text.lower()
-    match = re.search(r'sector\s+(\d+)', text_lower)
+    match = re.search(r'(?:sector|सेक्टर)\s+(\d+)', text_lower)
     if match:
         num = int(match.group(1))
         if 1 <= num <= 8:
             return f"Sector {num}"
-    match = re.search(r'gate\s+([a-zA-Z0-9]+)', text_lower)
+    match = re.search(r'(?:gate|गेट)\s+([a-zA-Z0-9]+)', text_lower)
     if match:
         return f"Gate {match.group(1).upper()}"
     return "Sector 1"  # default to sector 1

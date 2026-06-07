@@ -85,7 +85,7 @@ export default function Dispatch() {
         <CardContent>
           <textarea
             className="w-full h-28 p-4 bg-black/50 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 resize-none text-base leading-relaxed"
-            placeholder={"Try:\n• Medical emergency at Sector 3, person unconscious\n• Child missing near Sector 5\n• Massive crowd surge at Sector 8 entry"}
+            placeholder={"Try:\n• Medical emergency at Sector 3, person unconscious\n• सेक्टर 8 में आग लग गई है (Fire at Sector 8)\n• Massive crowd surge at Sector 8 entry"}
             value={incidentText}
             onChange={(e) => setIncidentText(e.target.value)}
             disabled={dispatched}
