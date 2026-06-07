@@ -13,7 +13,7 @@ export default function Auth() {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
       
       <div className="z-10 text-center mb-12 flex flex-col items-center max-w-md w-full">
-        <h1 className="text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-blue-400 to-indigo-600 text-transparent bg-clip-text">SangamSync</h1>
+        <h1 className="text-5xl font-bold tracking-tight mb-4 pb-2 bg-gradient-to-r from-blue-400 to-indigo-600 text-transparent bg-clip-text">SangamSync</h1>
         <p className="text-muted-foreground mb-8 text-lg">Right Volunteer. Right Place. Right Time.</p>
         
         <Card className="w-full bg-card/50 backdrop-blur-xl border-white/10 shadow-2xl">

@@ -47,7 +47,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside className="w-64 border-r border-white/10 bg-card/30 flex flex-col backdrop-blur-md shrink-0">
         <div className="p-6 border-b border-white/10">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 text-transparent bg-clip-text tracking-tight">SangamSync</h2>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 text-transparent bg-clip-text tracking-tight pb-1">SangamSync</h2>
           <p className="text-xs text-muted-foreground mt-1">Control Room</p>
         </div>
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
