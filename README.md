@@ -4,7 +4,6 @@
 
 <div align="center">
 
-![SangamSync](https://img.shields.io/badge/SangamSync)
 ![Deployed](https://img.shields.io/badge/Status-Live%20on%20Vercel%20%2B%20Render-22c55e?style=for-the-badge)
 
 **"Right Volunteer. Right Place. Right Time."**
