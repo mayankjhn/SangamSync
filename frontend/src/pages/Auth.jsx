@@ -28,13 +28,6 @@ export default function Auth() {
             >
               Admin (Control Room)
             </Button>
-            <Button 
-              variant="outline" 
-              className="w-full h-12 text-lg border-white/20 hover:bg-white/10"
-              onClick={() => navigate('/dashboard')}
-            >
-              Volunteer Portal
-            </Button>
           </CardContent>
           <CardFooter className="justify-center text-xs text-muted-foreground mt-4">
             <p>Mahakumbh Workforce Optimization Platform</p>
