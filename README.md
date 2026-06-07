@@ -4,11 +4,7 @@
 
 <div align="center">
 
-![SangamSync](https://img.shields.io/badge/SangamSync-Command%20Center-6366f1?style=for-the-badge)
-![Hackathon](https://img.shields.io/badge/Mahakumbh-Innovation%20Hackathon%202028-f59e0b?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![SangamSync](https://img.shields.io/badge/SangamSync)
 ![Deployed](https://img.shields.io/badge/Status-Live%20on%20Vercel%20%2B%20Render-22c55e?style=for-the-badge)
 
 **"Right Volunteer. Right Place. Right Time."**
