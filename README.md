@@ -221,24 +221,24 @@ Sectors use a **distance matrix** across Sector 1–8 for proximity calculation.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     FRONTEND (Vercel)                        │
-│  React 18 · Vite · Tailwind · Framer Motion · Recharts       │
-│                                                              │
-│  Auth → Overview → Dispatch → Heatmap → Burnout              │
-│  Volunteers → Incident History → Ops Status Board            │
+│                     FRONTEND (Vercel)                       │
+│  React 18 · Vite · Tailwind · Framer Motion · Recharts      │
+│                                                             │
+│  Auth → Overview → Dispatch → Heatmap → Burnout             │
+│  Volunteers → Incident History → Ops Status Board           │
 └──────────────────────────┬──────────────────────────────────┘
                            │ REST API (VITE_API_URL)
 ┌──────────────────────────▼──────────────────────────────────┐
-│                     BACKEND (Render)                            │
-│  FastAPI · SQLAlchemy · SQLite · Auto-seed on startup          │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │              Local Intelligence Engine                   │   │
-│  │  Incident Classifier │ Allocation Engine │ Burnout API  │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│  Volunteers │ Incidents │ Assignments (with match scores)       │
-└─────────────────────────────────────────────────────────────────┘
+│                     BACKEND (Render)                        │
+│  FastAPI · SQLAlchemy · SQLite · Auto-seed on startup       │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────    │
+│  │              Local Intelligence Engine               │   │
+│  │ Incident Classifier │ Allocation Engine │ Burnout API│   │
+│  └──────────────────────────────────────────────────────┘   │
+│                                                             │
+│  Volunteers │ Incidents │ Assignments (with match scores)   │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -497,7 +497,6 @@ Interactive docs: **/docs**
 | **Innovation** | Explainable allocation + offline-reliable intelligence |
 | **Execution** | Live deployed app with persistent dispatch |
 | **Usability** | Command-center UI, 9 integrated pages |
-| **AI-assisted build** | Built end-to-end with Cursor |
 | **Impact** | 15-min manual dispatch → <10 second decision |
 
 ### Demo Script (Quick)
@@ -538,7 +537,6 @@ Interactive docs: **/docs**
 
 **Acknowledgements:**
 - Expert Hire & VIT Bhopal — Mahakumbh Innovation Hackathon 2028
-- [Cursor](https://cursor.com) — AI-assisted development
 - [FastAPI](https://fastapi.tiangolo.com/) · [React](https://react.dev/) · [Vite](https://vitejs.dev/) · [Tailwind CSS](https://tailwindcss.com/)
 
 ---
