@@ -18,8 +18,6 @@
 | | Link |
 |---|------|
 | 🌐 **Live Demo** | [https://sangam-sync.vercel.app](https://sangam-sync.vercel.app) |
-| 🎥 **Demo Video** |https://youtu.be/g5HgCiIF_YQ?si=NMpy2AFV6xy8Ci5b|
-| 📂 **GitHub** | [github.com/mayankjhn/SangamSync](https://github.com/mayankjhn/SangamSync) |
 
 </div>
 
